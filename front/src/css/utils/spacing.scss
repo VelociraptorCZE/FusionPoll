@@ -1,0 +1,24 @@
+@for $i from 1 through 5 {
+  .mx-#{$i} {
+    margin-left: calc(.25rem * #{$i});
+    margin-right: calc(.25rem * #{$i});
+  }
+}
+
+@for $i from 1 through 5 {
+  .mt-#{$i} {
+    margin-top: calc(.25rem * #{$i});
+  }
+}
+
+@for $i from 1 through 5 {
+  .my-#{$i} {
+    @extend .mt-#{$i};
+    margin-bottom: calc(.25rem * #{$i});
+  }
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}

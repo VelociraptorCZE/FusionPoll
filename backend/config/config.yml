@@ -1,0 +1,4 @@
+pollResultsEmail:
+  subject: "Term poll answer from "
+  to: ""
+  from: ""

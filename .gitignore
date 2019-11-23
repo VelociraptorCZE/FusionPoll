@@ -1,0 +1,6 @@
+.idea
+.cache
+node_modules
+vendor
+package-lock.json
+backend/config/config.local.yml

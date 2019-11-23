@@ -1,0 +1,29 @@
+{
+  "name": "fusion-poll",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Simon Raichl"
+  },
+  "browserslist": [
+    "> 2%"
+  ],
+  "dependencies": {
+    "components": "^0.1.0",
+    "minicomponent": "1.5.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.7.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.7.4",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.23.7"
+  },
+  "scripts": {
+    "build": "npm run build:js && npm run build:css",
+    "build:js": "parcel build front/src/js/app.js --no-source-maps --out-dir public/dist/js/ --out-file app.js",
+    "build:css": "parcel build front/src/css/app.scss --no-source-maps --out-dir public/dist/css/ --out-file app.css",
+    "dev:js": "parcel watch front/src/js/app.js --no-source-maps --out-dir public/dist/js/ --out-file app.js",
+    "dev:css": "parcel watch front/src/css/app.scss --no-source-maps --out-dir public/dist/css/ --out-file app.css"
+  }
+}

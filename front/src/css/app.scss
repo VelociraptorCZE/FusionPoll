@@ -1,0 +1,86 @@
+/**
+ * Fusion Poll
+ * Copyright (c) Simon Raichl & Ondrej Masopust 2019
+ * MIT License
+ */
+
+@import "variables";
+
+@import "components/UI";
+@import "components/containers";
+
+@import "utils/spacing";
+@import "utils/text";
+@import "utils/position";
+@import "utils/background";
+@import "utils/shadow";
+@import "utils/size";
+
+* {
+    font-family: "Segoe UI Light", sans-serif;
+    color: $blue;
+}
+
+body {
+    background: $light-gray;
+    min-height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+// Unrefactored legacy code
+
+/*the scrollbar background*/
+DIV::-webkit-scrollbar {
+    background: #8CAEFF;
+    width: 8px;
+    height: 8px;
+}
+
+SPAN::-webkit-scrollbar {
+    background: #8CAEFF;
+    width: 8px;
+    height: 8px;
+}
+
+DIV::-webkit-scrollbar-thumb {
+    background: gray;
+    border-radius: 80px;
+}
+
+SPAN::-webkit-scrollbar-thumb {
+    background: gray;
+    border-radius: 80px;
+}
+
+/******Style of the calendar******/
+#calendar {text-align: center;}
+
+#timePrompt {
+    display: none;
+    text-align: center;
+    border: thin black solid;
+    background-color: white;
+    border-radius: 5px;
+    padding: 30px;
+    position: absolute;
+}
+
+#statusText {display: none;}
+#submitButton {display: none;}
+
+.day {
+    cursor: pointer;
+    float: left;
+    border: thin black solid;
+    border-radius: 5px;
+    height: 100px;
+    width: 200px;
+    max-width: 200px;
+    max-height: 100px;
+    padding: 5px;
+}
+
+.lastDayInRow {clear: right;}

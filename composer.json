@@ -1,0 +1,15 @@
+{
+  "name": "raichlsimon/fusion_poll",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Simon Raichl"
+    }
+  ],
+  "require": {
+    "symfony/yaml": "v5.0.0"
+  },
+  "autoload": {
+    "psr-4": { "FusionPoll\\": "backend/" }
+  }
+}
