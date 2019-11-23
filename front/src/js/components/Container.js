@@ -63,7 +63,7 @@ export default class extends MiniComponent {
                 <h2 className={"error-text"}>{"Something went wrong :/"}</h2>
                 <strong className={"error-text"}>{currentContainer}</strong>
             </div>
-        )
+        );
     }
 
     render ({ currentContainer, containers }) {
