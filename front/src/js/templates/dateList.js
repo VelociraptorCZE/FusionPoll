@@ -58,7 +58,7 @@ export default function dateList() {
     };
 
     return (
-        <div style={"edit-row-container"}>
+        <div className={"edit-row-container"}>
             <h2 className={"header"}>{"Your answers"}</h2>
 
             {days.map((day, dayNumber) => (
