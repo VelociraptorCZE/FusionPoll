@@ -29,7 +29,7 @@
     "build": "npm run build:js && npm run build:css",
     "build:js": "npx webpack",
     "build:css": "parcel build front/src/css/app.scss --no-source-maps --out-dir public/dist/css/ --out-file app.css",
-    "dev:js": "parcel watch front/src/js/app.js --no-source-maps --out-dir public/dist/js/ --out-file app.js",
+    "dev:js": "npx webpack --watch",
     "dev:css": "parcel watch front/src/css/app.scss --no-source-maps --out-dir public/dist/css/ --out-file app.css"
   }
 }
