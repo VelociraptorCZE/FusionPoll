@@ -3,11 +3,20 @@ declare(strict_types=1);
 
 namespace FusionPoll\Parser;
 
+use FusionPoll\Model\AnswerEntry;
 use \stdClass;
 
 class EmailParser
 {
-    public static function parseResponseToReadableFormat(): string
+    /** @var AnswerEntry */
+    private $answerEntry;
+
+    public function __construct()
+    {
+        $this->answerEntry = new AnswerEntry();
+    }
+
+    public function parseResponseToReadableFormat(): string
     {
         $parseDayCallback = function (stdClass $day): string {
             return "
@@ -18,9 +27,14 @@ class EmailParser
             ";
         };
 
-        ['name' => $name, 'days' => $days] = $_POST;
-        $days = implode('<br>', array_map($parseDayCallback, json_decode($days))) ?: "Can't attend this month";
+        $daysJson = json_decode($this->answerEntry->getDays());
+        $days = implode('<br>', array_map($parseDayCallback, $daysJson)) ?: "Can't attend this month";
 
-        return "<h2>{$name}</h2> {$days}";
+        return "<h2>{$this->answerEntry->getName()}</h2> {$days}";
+    }
+
+    public function getAnswerEntry(): AnswerEntry
+    {
+        return $this->answerEntry;
     }
 }

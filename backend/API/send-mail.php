@@ -22,12 +22,15 @@ if ($_SERVER['REQUEST_METHOD'] === "GET") {
 try {
     $parsedYaml = Yaml::parseFile(__DIR__ . '/../config/config.local.yml');
     $emailInfo = new EmailInformation($parsedYaml['emailPollResults']);
+    $emailParser = new EmailParser;
+
     mail(
         $emailInfo->getTo(),
-        $emailInfo->getSubject(),
-        EmailParser::parseResponseToReadableFormat(),
+        $emailInfo->getSubject() . $emailParser->getAnswerEntry()->getName(),
+        $emailParser->parseResponseToReadableFormat(),
         $emailInfo->getFrom()
     );
+
     echo json_encode(['result' => true]);
 } catch (Exception $e) {
     echo json_encode(['result' => false]);
