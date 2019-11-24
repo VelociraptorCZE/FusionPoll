@@ -1,0 +1,14 @@
+.edit-row {
+  padding: 1rem 1rem 2.75rem 1rem;
+  border-radius: $rounded;
+  background-color: #fff;
+  font-size: 18px;
+  position: relative;
+
+  &__edit-button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    @extend .btn-primary;
+  }
+}

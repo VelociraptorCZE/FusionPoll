@@ -24,6 +24,10 @@
   color: #fff;
   font-size: 18px;
   cursor: pointer;
+
+  &[disabled] {
+    opacity: .75;
+  }
 }
 
 .error-text {
@@ -32,28 +36,4 @@
 
 .header {
   @extend .text-center;
-}
-
-.edit-row {
-  padding: 1rem 1rem 2.75rem 1rem;
-  border-radius: $rounded;
-  background-color: #fff;
-  font-size: 18px;
-  position: relative;
-
-  &__edit-button {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    @extend .btn-primary;
-  }
-}
-
-.edit-row-container {
-  padding: 3rem 0;
-  width: 50%;
-  
-  @media (max-width: $breakpoint-sm) {
-    width: 100%;
-  }
 }

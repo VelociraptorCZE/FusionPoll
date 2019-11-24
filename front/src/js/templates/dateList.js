@@ -43,11 +43,16 @@ export default function dateList() {
         if (dataWasSent) return;
 
         dataWasSent = true;
+        const sendEmailButton = document.getElementById("send-email-button");
         const body = new FormData;
         body.append("days", JSON.stringify(selectedDays.filter(day => !!day)));
         body.append("name", name);
 
         try {
+            if (sendEmailButton) {
+                sendEmailButton.disabled = true;
+                sendEmailButton.innerText = "Sending answers...";
+            }
             const emailResponse = await fetch("backend/API/send-mail.php", { method: "POST", body });
             const { result } = await emailResponse.json();
             if (!result) throw new Error(EMAIL_SEND_ERROR);
@@ -70,7 +75,7 @@ export default function dateList() {
             ))}
 
             <div className={"position-fixed bottom-0 right-0 bg-white shadow-sm w-100 text-center"}>
-                <button onClick={sendEmail} className={"btn-primary"}>
+                <button onClick={sendEmail} className={"btn-primary"} id={"send-email-button"}>
                     Submit answers
                 </button>
             </div>
