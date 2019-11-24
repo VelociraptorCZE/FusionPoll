@@ -14,7 +14,7 @@ export default function dateSpecification () {
 
     const getDayInformation = () => {
         const form = document.getElementById("date-information");
-        return Object.fromEntries([...new FormData(form)]);
+        return Object.fromEntries(new FormData(form).entries());
     };
 
     const setNextDay = () => {

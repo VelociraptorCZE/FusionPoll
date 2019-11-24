@@ -25,10 +25,14 @@ export default function nameInput () {
         }
     };
 
-    const nameValidationCallback = () => {
+    const nameValidationCallback = ({ key }) => {
         const usernameInput = getUsernameInput();
 
         if (isNameValid()) {
+            if (key === "Enter") {
+                return enterNameCallback();
+            }
+
             return usernameInput.classList.remove(INPUT_ERROR);
         }
 
