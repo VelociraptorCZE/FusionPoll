@@ -11,7 +11,6 @@
     "> 0.2%"
   ],
   "dependencies": {
-    "components": "^0.1.0",
     "minicomponent": "1.5.5"
   },
   "devDependencies": {
