@@ -14,7 +14,7 @@ use FusionPoll\Model\EmailInformation;
 use FusionPoll\Parser\EmailParser;
 use Symfony\Component\Yaml\Yaml;
 
-if ($_SERVER['REQUEST_METHOD'] === "GET") {
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     http_response_code(500);
     die;
 }
