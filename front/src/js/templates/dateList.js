@@ -6,6 +6,7 @@
 
 import { MiniComponentJsx } from "minicomponent";
 import { DATE_SPECIFICATION, EMAIL_SEND_ERROR, ANSWERS_HAVE_BEEN_SENT } from "../containerIds";
+import { getApiPoint, SEND_MAIL } from "../service/api";
 
 export default function dateList() {
     const { days, selectedDays, name } = this.state;
@@ -53,9 +54,9 @@ export default function dateList() {
                 sendEmailButton.disabled = true;
                 sendEmailButton.innerText = "Sending answers...";
             }
-            const emailResponse = await fetch("backend/API/send-mail.php", { method: "POST", body });
+            const emailResponse = await fetch(getApiPoint(SEND_MAIL), { method: "POST", body });
             const { result } = await emailResponse.json();
-            if (!result) throw new Error(EMAIL_SEND_ERROR);
+            if (result) throw new Error(EMAIL_SEND_ERROR);
             this.setState({ currentContainer: ANSWERS_HAVE_BEEN_SENT });
         } catch {
             this.setState({ currentContainer: EMAIL_SEND_ERROR });

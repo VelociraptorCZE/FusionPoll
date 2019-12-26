@@ -24,9 +24,16 @@ try {
     $emailInfo = new EmailInformation($parsedYaml['emailPollResults']);
     $emailParser = new EmailParser;
 
+    $name = $emailParser->getAnswerEntry()->getName();
+    $days = $emailParser->getAnswerEntry()->getDays();
+
+    if (!isset($name) || !isset($days)) {
+        throw new Exception("Name or days are not defined");
+    }
+
     mail(
         $emailInfo->getTo(),
-        $emailInfo->getSubject() . $emailParser->getAnswerEntry()->getName(),
+        $emailInfo->getSubject() . $name,
         $emailParser->parseResponseToReadableFormat(),
         $emailInfo->getFrom()
     );

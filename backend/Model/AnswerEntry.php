@@ -13,16 +13,16 @@ class AnswerEntry
 
     public function __construct()
     {
-        $this->name = $_POST['name'] ?? '';
-        $this->days = $_POST['days'] ?? '[]';
+        $this->name = $_POST['name'] ?? null;
+        $this->days = $_POST['days'] ?? null;
     }
 
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
 
-    public function getDays(): string
+    public function getDays(): ?string
     {
         return $this->days;
     }
